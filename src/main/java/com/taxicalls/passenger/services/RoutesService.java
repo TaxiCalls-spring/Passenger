@@ -3,7 +3,6 @@ package com.taxicalls.passenger.services;
 import com.taxicalls.passenger.model.Route;
 import java.util.List;
 import org.springframework.cloud.netflix.feign.FeignClient;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -14,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @FeignClient(name = "routes")
 public interface RoutesService {
 
-    @RequestMapping(method = RequestMethod.GET, value = "/", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(method = RequestMethod.GET, value = "/routes")
     public List<Route> getRoutes();
+
+    @RequestMapping(method = RequestMethod.POST, value = "/available")
+    public List<Route> getAvailableRoutes(Route route);
 
 }

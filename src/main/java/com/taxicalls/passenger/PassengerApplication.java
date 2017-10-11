@@ -8,16 +8,15 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Import;
 
-import com.taxicalls.passenger.model.PassengersConfiguration;
-import com.taxicalls.passenger.model.PassengerRepository;
+import com.taxicalls.passenger.configuration.PassengersConfiguration;
+import com.taxicalls.passenger.repository.PassengerRepository;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
 
 @EnableAutoConfiguration
 @EnableDiscoveryClient
 @SpringBootApplication
+@EnableFeignClients
 @Import(PassengersConfiguration.class)
 public class PassengerApplication {
 
@@ -32,19 +31,7 @@ public class PassengerApplication {
      * @param args Program arguments - ignored.
      */
     public static void main(String[] args) {
-        System.setProperty("spring.config.name", "passenger");
+//        System.setProperty("spring.config.name", "passenger");
         SpringApplication.run(PassengerApplication.class, args);
-    }
-
-    /**
-     * A customized RestTemplate that has the ribbon load balancer build in.
-     * Note that prior to the "Brixton"
-     *
-     * @return
-     */
-    @LoadBalanced
-    @Bean
-    RestTemplate restTemplate() {
-        return new RestTemplate();
     }
 }

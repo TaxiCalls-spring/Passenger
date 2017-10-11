@@ -1,4 +1,4 @@
-package com.taxicalls.passenger.model;
+package com.taxicalls.passenger.configuration;
 
 import java.util.logging.Logger;
 
@@ -12,7 +12,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @Configuration
 @ComponentScan
 @EntityScan("com.taxicalls.passenger.model")
-@EnableJpaRepositories("com.taxicalls.passenger.model")
+@EnableJpaRepositories("com.taxicalls.passenger.repository")
 @PropertySource("classpath:db-config.properties")
 public class PassengersConfiguration {
 
