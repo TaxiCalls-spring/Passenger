@@ -1,8 +1,5 @@
 package com.taxicalls.passenger.configuration;
 
-import java.util.logging.Logger;
-
-
 import org.springframework.boot.orm.jpa.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -16,9 +13,4 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @PropertySource("classpath:db-config.properties")
 public class PassengersConfiguration {
 
-    protected Logger logger;
-
-    public PassengersConfiguration() {
-        logger = Logger.getLogger(getClass().getName());
-    }
 }

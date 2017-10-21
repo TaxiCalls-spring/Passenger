@@ -10,12 +10,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 /**
  *
  * @author romulo
  */
 @Entity
+@NamedQuery(name = "Passenger.findAll", query = "SELECT p FROM Passenger p")
 public class Passenger implements Serializable {
 
     @Id

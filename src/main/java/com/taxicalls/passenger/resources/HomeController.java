@@ -1,4 +1,4 @@
-package com.taxicalls.passenger.resource;
+package com.taxicalls.passenger.resources;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
