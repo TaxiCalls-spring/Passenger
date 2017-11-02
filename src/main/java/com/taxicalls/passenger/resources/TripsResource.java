@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.taxicalls.passenger.services.NotificationService;
 import com.taxicalls.passenger.services.TripService;
-import java.util.Collection;
+import com.taxicalls.protocol.Response;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/trips")
@@ -26,14 +27,14 @@ public class TripsResource {
     private NotificationService notificationService;
 
     @RequestMapping(method = RequestMethod.POST, value = "/drivers/available")
-    public Collection<Trip> getAvailableRoutes(Trip trip) {
+    public Response getAvailableRoutes(@RequestBody Trip trip) {
         LOGGER.log(Level.INFO, "getAvailableRoutes() invoked");
         return tripService.getAvailableDrivers(trip);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/drivers/choose")
-    public void chooseDriver(Driver driver) {
-        notificationService.chooseDriver(driver);
+    public Response chooseDriver(@RequestBody Driver driver) {
+        return notificationService.chooseDriver(driver);
     }
 
 }

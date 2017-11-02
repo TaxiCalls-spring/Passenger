@@ -47,7 +47,7 @@ public class PassengerService {
         return passengers;
     }
 
-    public Passenger getPassenger(Integer id) {
+    public Passenger getPassenger(Long id) {
         Passenger passenger = passengerRepository.findOne(id);
         return passenger;
     }

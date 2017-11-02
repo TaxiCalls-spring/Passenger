@@ -14,7 +14,7 @@ import java.util.Set;
  */
 public class Trip implements Serializable {
 
-    private Integer id;
+    private Long id;
     private Address addressFrom;
     private Address addressTo;
     private Set<Passenger> passengers;
@@ -22,11 +22,11 @@ public class Trip implements Serializable {
     protected Trip() {
     }
 
-    public Trip(Integer id) {
+    public Trip(Long id) {
         this.id = id;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 

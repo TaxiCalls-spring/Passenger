@@ -1,6 +1,7 @@
 package com.taxicalls.passenger.services;
 
 import com.taxicalls.passenger.model.Driver;
+import com.taxicalls.protocol.Response;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,6 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public interface BillingService {
 
    @RequestMapping(method = RequestMethod.POST, value = "/billings")
-    public void chooseDriver(Driver diver);
+    public Response chooseDriver(Driver diver);
 
 }
