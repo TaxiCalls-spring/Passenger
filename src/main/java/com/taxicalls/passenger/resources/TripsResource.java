@@ -1,6 +1,5 @@
 package com.taxicalls.passenger.resources;
 
-import com.taxicalls.passenger.model.Driver;
 import com.taxicalls.passenger.model.Trip;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,6 +25,12 @@ public class TripsResource {
     @Autowired
     private NotificationService notificationService;
 
+    @RequestMapping(method = RequestMethod.POST)
+    public Response createTrip(@RequestBody Trip trip) {
+        LOGGER.log(Level.INFO, "createTrip() invoked");
+        return Response.successful(trip);
+    }
+
     @RequestMapping(method = RequestMethod.POST, value = "/drivers/available")
     public Response getAvailableRoutes(@RequestBody Trip trip) {
         LOGGER.log(Level.INFO, "getAvailableRoutes() invoked");
@@ -33,8 +38,8 @@ public class TripsResource {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/drivers/choose")
-    public Response chooseDriver(@RequestBody Driver driver) {
-        return notificationService.chooseDriver(driver);
+    public Response chooseDriver(@RequestBody ChooseDriverRequest chooseDriverRequest) {
+        return notificationService.chooseDriver(chooseDriverRequest);
     }
 
 }

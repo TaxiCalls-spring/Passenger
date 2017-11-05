@@ -26,7 +26,7 @@ public class Passenger implements Serializable {
     private String email;
     private String password;
 
-    public Passenger() {
+    protected Passenger() {
     }
 
     public Passenger(Long id) {

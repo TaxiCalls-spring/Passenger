@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @FeignClient(name = "trip")
 public interface TripService {
 
-    @RequestMapping(method = RequestMethod.POST, value = "/drivers/available")
+    @RequestMapping(method = RequestMethod.POST, value = "drivers/available")
     public Response getAvailableDrivers(Trip trip);
 
 }
