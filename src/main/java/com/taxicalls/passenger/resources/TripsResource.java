@@ -39,6 +39,7 @@ public class TripsResource {
 
     @RequestMapping(method = RequestMethod.POST, value = "/drivers/choose")
     public Response chooseDriver(@RequestBody ChooseDriverRequest chooseDriverRequest) {
+        tripService.chooseDriver(chooseDriverRequest);
         return notificationService.chooseDriver(chooseDriverRequest);
     }
 
